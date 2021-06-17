@@ -56,7 +56,7 @@ function gradeQuiz(candidateAnswers) {
    //
   let grade = 0;
   for (let i = 0; i <= 4; i++) {
-    if (candidateAnswers[i] === correctAnswers[i]) {
+    if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
       grade += 1;
     }
   } 
@@ -66,6 +66,8 @@ function gradeQuiz(candidateAnswers) {
   } else {
     console.log(">>> Status: PASSED <<<")
   }
+
+  console.log(grade);
   return grade/5*100;
 }
 
@@ -85,7 +87,8 @@ function runProgram() {
   // TODO 1.1c: Ask for candidate's name //
   
   askQuestion();
-  gradeQuiz(this.candidateAnswers);
+  let grader = gradeQuiz(this.candidateAnswers);
+  console.log(`grader says ${grader}`);
 }
 
 
